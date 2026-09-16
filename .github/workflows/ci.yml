@@ -1,0 +1,33 @@
+name: Taste Lens CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+      - name: Python tests
+        run: pytest -q backend/tests
+      - name: Verify PRD v4.3 offline contract
+        run: python scripts/verify_prd_v43.py
+      - name: Compile Python
+        run: python -m compileall backend/app api scripts
+      - name: Install frontend dependencies
+        run: npm install
+      - name: Type-check frontend
+        run: npm run typecheck
+      - name: Build Next.js
+        run: npm run build

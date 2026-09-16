@@ -1,0 +1,24 @@
+{
+  "name": "taste-lens-prd-v4-3",
+  "version": "4.3.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test:backend": "pytest -q backend/tests",
+    "validate:assets": "python scripts/validate_assets.py",
+    "verify": "python scripts/verify_prd_v43.py"
+  },
+  "dependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "lucide-react": "^0.468.0",
+    "next": "^15.1.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.2"
+  }
+}

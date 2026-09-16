@@ -1,0 +1,12 @@
+[project]
+name = "taste-lens-prd-v4-3-api"
+version = "4.3.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi==0.115.6",
+  "numpy==2.2.1",
+  "pydantic==2.10.4",
+  "httpx==0.28.1",
+  "python-dotenv==1.0.1",
+  "supabase==2.11.0",
+]
